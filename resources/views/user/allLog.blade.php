@@ -9,7 +9,7 @@
 			<thead>
 				<th>User</th>
 				<th>Action</th>
-				<th>Waktu</th>
+				<th>Time</th>
 			</thead>
 			<tbody>
 				@foreach($gamelog_list as $log)

@@ -11,7 +11,7 @@
 				@if(Auth::user()->level == 'gamer')
 					<th>Result</th>
 				@endif
-				<th>Waktu</th>
+				<th>Time</th>
 			</thead>
 			<tbody>
 				@foreach($gamelog_list as $log)

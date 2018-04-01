@@ -13,4 +13,7 @@ class Game extends Model
 	public function getHintAttribute($hint){
 		return ucwords($hint);
 	}
+	public function getWordAttribute($word){
+		return strtoupper($word);
+	}
 }
