@@ -4,6 +4,8 @@ namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
+use Illuminate\Console\Scheduling\Schedule;
+
 class Kernel extends HttpKernel
 {
     /**
@@ -59,4 +61,22 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
 		'admin' => Middleware\RedirectIfNotAdmin::class,
     ];
+	
+	/**
+     * Define the application's command schedule.
+     *
+     * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
+     * @return void
+     */
+    protected function schedule(Schedule $schedule)
+    {
+        $schedule->call(function () {
+            DB::table('gamelogs')->insert([
+				[
+					'id_user'		=> '1',
+					'action'		=> 'test scheduling',
+				]
+			]);
+        })->everyMinute();;
+    }
 }
